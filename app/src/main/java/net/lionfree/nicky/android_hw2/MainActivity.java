@@ -1,5 +1,7 @@
 package net.lionfree.nicky.android_hw2;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -60,6 +62,22 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+        else if(id == R.id.reset){
+            name.setText("");
+        }
+        else{
+            AlertDialog.Builder MsgBox = new AlertDialog.Builder(this);
+            MsgBox.setTitle("關於此程式");
+            MsgBox.setMessage("作者:陳琮斌");
+            DialogInterface.OnClickListener OKButton = new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface di, int i) {
+
+                }
+            };
+            MsgBox.setPositiveButton("確定",OKButton);
+            MsgBox.show();
+
         }
 
         return super.onOptionsItemSelected(item);
